@@ -1,0 +1,202 @@
+* { touch-action: none; }
+ul{
+    padding:0;
+    margin: 0;
+}
+
+textarea{
+    margin: 0;
+    border-radius: 0;
+}
+
+.mui-scroll-wrapper{
+    top:44px;
+}
+
+.mui-bar-nav{
+    background: #007aff;
+}
+
+.mui-title{
+    color: #fff;
+}
+
+/***********  公告样式   ************/
+/* .notice .title{
+	margin-bottom: 10px;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+.notice .mui-card-header{
+	display: block;
+	padding: 0;
+}
+
+.notice .mui-card-header .date{
+	font-size: 12px;
+	padding-bottom: 5px;
+}
+
+.notice .mui-card{
+	margin: 0;
+	box-shadow: none;
+}
+
+.notice .mui-card-content{
+	padding: 12px 0 5px;
+}
+
+.mui-table-view:before, .mui-table-view-cell:after {
+    left: 0 !important;
+    content: '';
+} */
+
+/*********** 车库样式   ************/
+.carport .mui-table-view-cell,
+.prize .mui-table-view-cell,
+.notice .mui-table-view-cell,
+.game .mui-table-view-cell,
+.treasure .mui-table-view-cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+}
+
+.mui-table-view-cell .item{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.mui-table-view-cell .item:first-child{
+    width:50px;
+}
+
+.mui-table-view-cell .item:not(:first-child){
+    flex: 1;
+}
+
+.mui-bar .mui-icon{
+    color: #fff;
+}
+
+.show{
+    display: block !important;
+}
+
+.mui-table-view.menu,.bs-content>li{
+    display: none;
+}
+
+
+
+/*********** 车库弹窗样式   ************/
+.mui-popup,.mui-popup .mui-popup-inner,.mui-popup .mui-popup-button{
+    border-radius: 0 !important;
+}
+
+.mui-popup{
+    width:300px;
+}
+
+.mui-popup .mui-input-row label{
+    padding: 11px 0;
+}
+
+.mui-popup .mui-input-row label~input{
+    height: 34px;
+    margin-bottom: 10px;
+    border:1px solid #ccc;
+    padding: 0 5px;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 320px) {
+    .mui-popup{
+        width:270px;
+    }
+    .mui-input-row label{
+        width: 40%
+    }
+    .mui-input-row label~input{
+        width: 60%;
+    }
+}
+
+/*********** 游戏模式样式   ************/
+.game{
+    padding: 15px;
+    background: #fff;
+}
+
+/*********** 游戏记录样式   ************/
+.gamelog .mui-table-view-cell{
+    display: flex;
+}
+
+.gamelog-item{
+    flex: 1;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.gamelog-item .mui-h5{
+    color:#333;
+}
+
+.gamelog-item p{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/*********** 分页样式   ************/
+.mui-content .pagination{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    display: none;
+}
+
+.mui-content .pagination-content{
+    text-align: center;
+    font-size: 0;
+    z-index: 999;
+    box-shadow: 0 -1px 3px rgba(0,0,0,.1);
+}
+
+.mui-content .pagination-content .btn{
+    display: inline-block;
+    font-size: 14px;
+    height: 30px;
+    margin-right: 5px;
+    line-height: 30px;
+    vertical-align: middle;
+    width: 60px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+}
+
+@media screen and (max-width:320px) {
+    .mui-content .pagination-content .btn{
+        width: 50px;
+    }
+}
+
+.mui-content .pagination-content .text{
+    font-size: 14px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+.pagination-content .btn.btn-right{
+    margin:0;
+}

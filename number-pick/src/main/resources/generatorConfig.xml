@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 指定特定数据库jdbc驱动jar包的位置 -->
+    <classPathEntry location="C:\WORK_DATA\Project\daxiangbaoxian\admin\target\admin\WEB-INF\lib\mysql-connector-java-5.1.30.jar"/>
+    <context id="default" targetRuntime="MyBatis3">
+        <!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接信息 -->
+        <jdbcConnection connectionURL="jdbc:mysql://118.31.189.117:2333/ae_plat?characterEncoding=utf8"
+                        driverClass="com.mysql.jdbc.Driver" userId="bz_user" password="3fff0bdfa72e22ab"/>
+
+        <!-- 非必须，类型处理器，在数据类型和java类型之间的转换控制 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 实体类 -->
+        <javaModelGenerator targetPackage="com.bz365.common.entity.plat" targetProject="C:\WORK_DATA\Project\ae\ae-common\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mapper 映射文件 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="C:\WORK_DATA\Project\ae\ae-plat\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- mapper 接口 -->
+        <javaClientGenerator targetPackage="com.bz365.plat.dao" targetProject="C:\WORK_DATA\Project\ae\ae-plat\src\main\java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!-- 要对那些数据表进行生成操作，必须要有一个 -->
+        <table schema="ae_plat" tableName="ae_order" domainObjectName="Order"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>

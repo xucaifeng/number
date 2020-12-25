@@ -1,0 +1,41 @@
+spring:
+#  application:
+#    name: number-pick
+  profiles:
+    active: dev
+
+eureka:
+  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+    # 先不注册
+    register-with-eureka: false
+    fetch-registry: false
+
+
+
+server:
+  port: 8081
+  servlet:
+    context-path: /number
+    session:
+      timeout: PT6H10M
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    map-underscore-to-camel-case: true
+    # 解决查询返回结果含null没有对应字段值问题
+    call-setters-on-nulls: true
+
+
+# 日志
+logging:
+  level:
+    # 打印sql
+    com.bz365.plat.financial.dao: debug
+    com.bz365.plat.dao: info
+  config: classpath:logback-${spring.profiles.active}.xml

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <property name="PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %t] [%c{1}] %M:%L - %X{requestId} %m%n"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${PATTERN}</pattern>
+      <charset>utf8</charset>
+    </encoder>
+  </appender>
+
+  <logger name="org.springframework.context.annotation" level="warn"/>
+  <logger name="com.netflix" level="warn"/>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
+</configuration>

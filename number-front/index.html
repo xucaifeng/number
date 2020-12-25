@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>随机选号分组系统</title>
+	<link rel="stylesheet" href="css/mui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=1"/>
+</head>
+<body>
+	
+	<header class="mui-bar mui-bar-nav" style="height: 80px">
+	    <h1 class="mui-title" >2019YFC1710304项目<br/>随机选号分组系统</h1>
+		<!--<h1 class="mui-title">随机选号分组系统</h1>-->
+	</header>
+	<div class="mui-content">
+		<div class="mui-content-padded" style="margin-left: 5px;margin-top: 60px;">
+			<div class="mui-input-row">
+				<label>所属中心</label>
+				<input id="center" type="text" class="mui-input" placeholder="" disabled = disabled>
+			</div>
+			<div class="mui-input-row">
+				<label>姓名缩写</label>
+				<input id="name" type="text" class="mui-input mui-input-clear" placeholder="请输入姓名缩写">
+			</div>
+			<div class="mui-input-row">
+				<label>身份证号</label>
+				<input id="idCard" type="text" class="mui-input mui-input-clear" placeholder="请输入身份证号">
+			</div>
+
+			<div class="mui-input-row">
+				<label>布氏分期</label>
+			</div>
+			<div class="mui-card">
+                <div class="mui-input-row mui-radio">
+                    <label id="brinell-1" style="width: 70%">痉挛期<d style="color: #2ac845">(剩余0)</d></label>
+                    <input name="radio1" brinellId="1" type="radio" style="width: 30%" disabled="disabled">
+                </div>
+                <div class="mui-input-row mui-radio">
+                    <label id="brinell-2" style="width: 70%">恢复期<d style="color: #2ac845">(剩余0)</d></label>
+                    <input name="radio1" brinellId="2" type="radio" style="width: 30%" disabled="disabled">
+                </div>
+			</div>
+
+			<div class="mui-content-padded">
+				<button type="button" class="mui-btn mui-btn-block mui-btn-success" onclick="return false;">选号并分组</button>
+				<button type="button" class="mui-btn mui-btn-block mui-btn-danger" onclick="return false;">退出</button>
+            </div>
+
+		</div>
+	</div>
+	<script src="js/mui.js?t=1"></script>
+	<script src="js/config.js?v=2" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js?t=10" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

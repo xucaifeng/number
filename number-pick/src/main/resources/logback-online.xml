@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <property name="PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %t] [%c{1}] %M:%L - %X{requestId} %m%n"/>
+    <property name="LOG_PATH" value="/home/cenozoic/logs/"/>
+    <property name="LOG_FILE" value="number/number-pick.log"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${PATTERN}</pattern>
+      <charset>utf8</charset>
+    </encoder>
+  </appender>
+
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}${LOG_FILE}</File>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}${LOG_FILE}_%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <maxHistory>30</maxHistory><!--  保留30天日志 -->
+        </rollingPolicy>
+    </appender>
+
+    <!--<logger name="jdbc.connection" level="OFF"/>-->
+    <!--<logger name="org.apache.kafka.clients.producer.ProducerConfig" level="warn"/>-->
+
+
+
+  <logger name="org.springframework.context.annotation" level="warn"/>
+  <logger name="com.netflix" level="warn"/>
+
+  <root level="INFO">
+    <!--<appender-ref ref="CONSOLE"/>-->
+    <appender-ref ref="FILE"/>
+  </root>
+
+</configuration>
