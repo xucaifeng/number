@@ -1,8 +1,11 @@
 package com.cenozoic.number.action;
 
+import com.cenozoic.number.annotation.PassToken;
 import com.cenozoic.number.dto.Resp;
+import com.cenozoic.number.entity.Number;
 import com.cenozoic.number.entity.User;
 import com.cenozoic.number.service.INumberService;
+import com.cenozoic.number.util.ExcelUtils;
 import com.cenozoic.number.util.IDCardUtil;
 import com.cenozoic.number.util.ParamUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
 
 /**
  * <p> 
@@ -67,5 +72,25 @@ public class NumberAction {
         log.info("pickNumber_response={}", resp);
         return resp;
     }
+
+
+    /**
+     * 导出excel
+     * @param request
+     * @param response
+     */
+    @PassToken
+    @RequestMapping("exportToExcel")
+    public void exportToExcel(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            List<Number> numberList = numberService.selectAll();
+            ExcelUtils.writeExcel(response, "取号分组结果.xlsx", numberList, Number.class);
+
+        } catch (Exception e) {
+            log.info("导出查询结果出错：" + e.getMessage());
+        }
+
+    }
+
 
 }

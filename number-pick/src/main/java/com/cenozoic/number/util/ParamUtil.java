@@ -29,6 +29,10 @@ public class ParamUtil {
 		return (obj == null) ? "" : obj.toString();
 	}
 
+	public static boolean isEmpty(Object str) {
+		return ((str == null) || ((str + "").length() == 0)|| StringUtils.isBlank(str+ "") || "null".equals(str + "") || "{}".equals(str + "") || "[]".equals(str + ""));
+	}
+
 	public static String toStringTwo(Object obj) {
 		return (obj == null) ? "0" : obj.toString();
 	}

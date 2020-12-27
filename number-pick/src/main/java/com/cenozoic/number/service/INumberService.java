@@ -1,6 +1,9 @@
 package com.cenozoic.number.service;
 
 import com.cenozoic.number.dto.Resp;
+import com.cenozoic.number.entity.Number;
+
+import java.util.List;
 
 /**
  * <p> 
@@ -26,4 +29,12 @@ public interface INumberService {
      * @return
      */
     Resp pickNumber(String centerId, String brinellId, String caseName, String caseIdCard);
+
+    /**
+     * 查询所有
+     * @return
+     */
+    List<Number> selectAll();
+
+
 }

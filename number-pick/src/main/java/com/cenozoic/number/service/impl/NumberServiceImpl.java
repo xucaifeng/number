@@ -1,13 +1,12 @@
 package com.cenozoic.number.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.cenozoic.number.constant.Constant;
 import com.cenozoic.number.dao.NumberMapper;
 import com.cenozoic.number.dto.Resp;
 import com.cenozoic.number.entity.Number;
 import com.cenozoic.number.service.INumberService;
-import com.cenozoic.number.util.ParamUtil;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,6 +78,7 @@ public class NumberServiceImpl implements INumberService {
             criteria.andEqualTo("id", number.getId());
             criteria.andIsNull("caseIdCard");
             example.and(criteria);
+
             int num = numberMapper.updateByExample(number, example);
             if (num > 0) {
                 return Resp.success(number);
@@ -87,4 +87,22 @@ public class NumberServiceImpl implements INumberService {
 
         return Resp.fail("未取到号");
     }
+
+
+    @Override
+    public List<Number> selectAll() {
+        return numberMapper.selectAll();
+    }
+
+
+    public List<Map<String, Object>> selectList() {
+        List<Number> numberList = numberMapper.selectAll();
+        List<Map<String, Object>> data = numberList.stream().map(this::numberToMap).collect(Collectors.toList());
+        return data;
+    }
+    private Map<String, Object> numberToMap(Number number) {
+        return JSONObject.parseObject(JSON.toJSONString(number), Map.class);
+    }
+
+
 }

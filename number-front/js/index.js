@@ -87,6 +87,7 @@ mui.ready(function(){
      * @param brinellId
      */
     function pickNumber(caseName, caseIdCard, brinellId) {
+        var user = localStorage.getItem("user");
         config.ajax(config.server_url+"/number/pickNumber", {
                 'centerId': JSON.parse(user).centerId,
                 'caseName': caseName,
